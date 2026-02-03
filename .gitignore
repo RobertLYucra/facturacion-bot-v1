@@ -1,0 +1,57 @@
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias de Node.js
+node_modules/
+npm-debug.log
+
+# Dependencias de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+# Dependencias de Java
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+/.idea
+/.vscode
+
+# Archivos de compilación
+/dist
+/build
+/out
+
+# Archivos de entorno
+.env
+.env.local
+
+# Configuración de editores de código
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Bases de datos locales
+*.sqlite3
+*.db
+
+/input
+/inboxFacturas
+/envFacturas
+/correos_procesados
+/adjuntos_descargados
+/Documentos de Facturación SSFF
+/FacturasEnv

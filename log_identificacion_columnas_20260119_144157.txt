@@ -1,0 +1,12 @@
+=== LOG DE IDENTIFICACIÓN DE COLUMNAS ===
+Fecha y hora: 2026-01-19 14:41:57
+
+Patrones a buscar:
+- Comprobante: ^([A-Z]{1}\d{3}-\d{6}|\d{2}-[A-Z0-9]{1,4}--?\d{6,7}|[A-Z]{1}\d{3}--\d{7})$
+- Proyecto: ^[A-Za-z0-9]{6}$ (6 caracteres alfanuméricos)
+
+Analizando DataFrame con 86 filas y 21 columnas
+Se analizarán las primeras 10 filas
+
+--- Analizando columna 0: No. Factura ---
+  Fila 1: Valor = '07-F001--0001416'

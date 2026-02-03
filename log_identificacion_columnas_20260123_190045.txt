@@ -1,0 +1,985 @@
+=== LOG DE IDENTIFICACIÓN DE COLUMNAS ===
+Fecha y hora: 2026-01-23 19:00:45
+
+Patrones a buscar:
+- Comprobante: ^([A-Z]{1}\d{3}-\d{6}|\d{2}-[A-Z0-9]{1,4}--?\d{6,7}|[A-Z]{1}\d{3}--\d{7})$
+- Proyecto: ^[A-Za-z0-9]{6}$ (6 caracteres alfanuméricos)
+
+Analizando DataFrame con 16 filas y 21 columnas
+Se analizarán las primeras 10 filas
+
+--- Analizando columna 0: No. Factura ---
+  Fila 1: Valor = '01-F001--0043767'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '01-F001--0043768'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '01-F001--0043769'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '01-F001--0043770'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '01-F001--0043771'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '01-F001--0043772'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '01-F001--0043773'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '01-F001--0043774'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '01-F001--0043775'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '01-F001--0043776'
+    OK Coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 0:
+    - Valores que coinciden con patrón de comprobante: 10/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+   Columna de comprobantes identificada: 0 (patrón comprobante flexible)
+
+--- Analizando columna 1: Documento ---
+  Fila 1: Valor = '3401043767'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 2: Valor = '3401043768'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 3: Valor = '3401043769'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 4: Valor = '3401043770'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 5: Valor = '3401043771'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 6: Valor = '3401043772'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 7: Valor = '3401043773'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 8: Valor = '3401043774'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 9: Valor = '3401043775'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 10: Valor = '3401043776'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Resumen columna 1:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 2: Referencia ---
+  Fila 1: Valor = 'D002297746'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 2: Valor = 'D002297673'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 3: Valor = 'D002297665'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 4: Valor = 'D002297748'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 5: Valor = 'D002297700'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 6: Valor = 'D002297696'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 7: Valor = 'D002297805'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 8: Valor = 'D002297806'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 9: Valor = 'D002297362'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 10: Valor = 'D002297365'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Resumen columna 2:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 3: Proyecto ---
+  Fila 1: Valor = 'FONTI2'
+    ✗ No coincide con patrón de comprobante
+    OK Coincide con patrón de proyecto (6 caracteres alfanuméricos)
+  Fila 2: Valor = 'LPSDA'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 5, se esperaban 6 caracteres
+  Fila 3: Valor = 'LPSAP'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 5, se esperaban 6 caracteres
+  Fila 4: Valor = 'FONTI2'
+    ✗ No coincide con patrón de comprobante
+    OK Coincide con patrón de proyecto (6 caracteres alfanuméricos)
+  Fila 5: Valor = 'LPSDA'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 5, se esperaban 6 caracteres
+  Fila 6: Valor = 'LPSAP'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 5, se esperaban 6 caracteres
+  Fila 7: Valor = 'ENOPHY'
+    ✗ No coincide con patrón de comprobante
+    OK Coincide con patrón de proyecto (6 caracteres alfanuméricos)
+  Fila 8: Valor = 'ENOPHY'
+    ✗ No coincide con patrón de comprobante
+    OK Coincide con patrón de proyecto (6 caracteres alfanuméricos)
+  Fila 9: Valor = 'ENORSC'
+    ✗ No coincide con patrón de comprobante
+    OK Coincide con patrón de proyecto (6 caracteres alfanuméricos)
+  Fila 10: Valor = 'ENORSC'
+    ✗ No coincide con patrón de comprobante
+    OK Coincide con patrón de proyecto (6 caracteres alfanuméricos)
+  Resumen columna 3:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 6/10
+   Columna de proyecto identificada: 3 (patrón 6 caracteres alfanuméricos)
+
+--- Analizando columna 4: Nº identificación fiscal ---
+  Fila 1: Valor = '20458605662'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 2: Valor = '20100210909'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 3: Valor = '20100210909'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 4: Valor = '20458605662'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 5: Valor = '20454073143'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 6: Valor = '20454073143'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 7: Valor = '20330791412'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 8: Valor = '20330791412'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 9: Valor = '20330791412'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Fila 10: Valor = '20330791412'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 11, se esperaban 6 caracteres
+  Resumen columna 4:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 5: Deudor ---
+  Fila 1: Valor = '1100776'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 2: Valor = '1101801'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 3: Valor = '1101801'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 4: Valor = '1100776'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 5: Valor = '1194459'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 6: Valor = '1194459'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 7: Valor = '1128526'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 8: Valor = '1128526'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 9: Valor = '1128526'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Fila 10: Valor = '1128526'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+  Resumen columna 5:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 6: Nombre ---
+  Fila 1: Valor = 'FONDO NACIONAL DE FINANANCIAMI'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 30, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = 'LA POSITIVA SEGUROS Y REASEGUR'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 30, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = 'LA POSITIVA SEGUROS Y REASEGUR'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 30, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = 'FONDO NACIONAL DE FINANANCIAMI'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 30, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = 'LA POSITIVA VIDA SEGUROS Y REA'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 30, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = 'LA POSITIVA VIDA SEGUROS Y REA'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 30, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = 'ORYGEN PERU S.A.A.'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 18, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = 'ORYGEN PERU S.A.A.'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 18, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = 'ORYGEN PERU S.A.A.'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 18, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = 'ORYGEN PERU S.A.A.'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 18, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 6:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 7: Indicador impuestos ---
+  Fila 1: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 2: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 3: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 4: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 5: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 6: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 7: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 8: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 9: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Fila 10: Valor = 'C2'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 2, se esperaban 6 caracteres
+  Resumen columna 7:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 8: Denominación ---
+  Fila 1: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = 'Pedido Servicios'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 16, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 8:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 9: Factura rectificada ---
+  Fila 1: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 2: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 3: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 4: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 5: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 6: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 7: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 8: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 9: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 10: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Resumen columna 9:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 10: Fecha de autorización ---
+  Fila 1: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '22/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '22/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '22/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '22/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 10:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 11: Fecha factura ---
+  Fila 1: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '23/01/2026'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 11:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 12: Importe ---
+  Fila 1: Valor = '52,811.09'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '551,652.20'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '30,159.04'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '52,811.09'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '378,135.86'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '16,653.72'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '10,113.26'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '10,113.26'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '6,643.28'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '3,963.32'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 12:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 13: Importe.1 ---
+  Fila 1: Valor = '9,506.00'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '99,297.39'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '5,428.63'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '9,506.00'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '68,064.46'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '2,997.67'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '1,820.39'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '1,820.38'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '1,195.79'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '713.40'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 13:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 14: Moneda ---
+  Fila 1: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 2: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 3: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 4: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 5: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 6: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 7: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 8: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 9: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 10: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Resumen columna 14:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 15: Importe ML ---
+  Fila 1: Valor = '52,811.09'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '551,652.20'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '30,159.04'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '52,811.09'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '378,135.86'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '16,653.72'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '10,113.26'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '10,113.26'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 9, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '6,643.28'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '3,963.32'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 8, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 15:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 16: Moneda local ---
+  Fila 1: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 2: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 3: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 4: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 5: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 6: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 7: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 8: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 9: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Fila 10: Valor = 'PEN'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 3, se esperaban 6 caracteres
+  Resumen columna 16:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 17: Tp.cambio ---
+  Fila 1: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 2: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 3: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 4: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 5: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 6: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 7: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 8: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 9: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 10: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Resumen columna 17:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 18: Cambio p.contab. ---
+  Fila 1: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 2: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 3: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 4: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 5: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 6: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 7: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 8: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 9: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Fila 10: Valor = '1,00000'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 7, se esperaban 6 caracteres
+      -> Contiene caracteres que no son alfanuméricos
+  Resumen columna 18:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 19: No. documento ---
+  Fila 1: Valor = '5100000446'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 2: Valor = '5100000447'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 3: Valor = '5100000448'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 4: Valor = '5100000449'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 5: Valor = '5100000450'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 6: Valor = '5100000451'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 7: Valor = '5100000452'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 8: Valor = '5100000453'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 9: Valor = '5100000454'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Fila 10: Valor = '5100000455'
+    ✗ No coincide con patrón de comprobante
+    ✗ No coincide con patrón de proyecto
+      -> La longitud es 10, se esperaban 6 caracteres
+  Resumen columna 19:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+--- Analizando columna 20: COMENTARIOS ---
+  Fila 1: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 2: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 3: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 4: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 5: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 6: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 7: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 8: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 9: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Fila 10: Valor = ''
+    ! Valor vacío o NaN - ignorado
+  Resumen columna 20:
+    - Valores que coinciden con patrón de comprobante: 0/10
+    - Valores que coinciden con patrón de proyecto: 0/10
+
+=== RESULTADOS FINALES ===
+ Columna de comprobantes: 0
+ Columna de proyecto: 3
+
+Log guardado en: D:\facturas_bot\log_identificacion_columnas_20260123_190045.txt
