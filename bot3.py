@@ -4,10 +4,15 @@ import logging
 import time
 import sys
 
+# Crear directorio LOGS/bot3 si no existe
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOGS_DIR = os.path.join(SCRIPT_DIR, "LOGS", "bot3")
+os.makedirs(LOGS_DIR, exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename='ejecucion_automatizada.log',
+    filename=os.path.join(LOGS_DIR, 'ejecucion_automatizada.log'),
     filemode='a'
 )
 

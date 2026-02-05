@@ -55,14 +55,6 @@ def buscar_proyecto(codigo_proyecto, ruta_excel="Maestra/Robot 2_Estructura Carp
     codigo_upper = codigo_proyecto.upper()
     print(f"Buscando coincidencia exacta para: {codigo_upper}")
     
-    # Comparación de valores para depuración
-    # print(f"Algunos valores en la columna Proyecto (convertidos a mayúsculas):")
-    # for i, proyecto in enumerate(datos["Proyecto"].head(40)):
-    #     if isinstance(proyecto, str):
-    #         print(f"  {i+1}. Original: '{proyecto}' - En mayúsculas: '{proyecto.upper()}' - Coincide: {proyecto.upper() == codigo_upper}")
-    #     else:
-    #         print(f"  {i+1}. Valor no es string: {type(proyecto)} - Valor: {proyecto}")
-    
     # Buscar registros que contengan el código de proyecto (ignorando mayúsculas/minúsculas)
     resultados = datos[datos["Proyecto"].str.upper() == codigo_upper]
     

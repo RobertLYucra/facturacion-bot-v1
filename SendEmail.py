@@ -10,11 +10,16 @@ import mimetypes
 from email.mime.base import MIMEBase
 from email import encoders
 
+# Crear directorio LOGS/send_email si no existe
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOGS_DIR = os.path.join(SCRIPT_DIR, "LOGS", "send_email")
+os.makedirs(LOGS_DIR, exist_ok=True)
+
 # Configuración de rutas
 EXCEL_FILE = r"D:\facturas_bot\Registros Historico\3.Historicov2.xlsx"  # Archivo de facturas
 TEMPLATES_FILE = r"D:\facturas_bot\Maestra\Robot 2_Estructura Carpetas Factura SSFF 03.03.2025.xlsx"  # Archivo con plantillas de correo por cliente
 TEMPLATES_SHEET = "Configuracion_Correos"  # Nombre de la hoja con las plantillas
-LOG_FILE = "monitor_excel.log" 
+LOG_FILE = os.path.join(LOGS_DIR, "monitor_excel.log") 
 
 # Credenciales y configuración
 EMAIL = "alertasflm@indra.es"

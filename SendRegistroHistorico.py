@@ -4,8 +4,13 @@ import time
 import logging
 from datetime import datetime
 
+# Crear directorio LOGS/send_registro_historico si no existe
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOGS_DIR = os.path.join(SCRIPT_DIR, "LOGS", "send_registro_historico")
+os.makedirs(LOGS_DIR, exist_ok=True)
+
 # Configurar logging
-logging.basicConfig(filename='file_copy.log', level=logging.INFO, 
+logging.basicConfig(filename=os.path.join(LOGS_DIR, 'file_copy.log'), level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Rutas de los archivos

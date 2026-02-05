@@ -41,7 +41,13 @@ FILE_DOWNLOAD_ATTACHMENT = "inboxFacturas"
 FILE_EMAIL_REVISAR = "BOT2-REVISAR"
 SERVER = "imap.indra.es"
 PORT_EMAIL = 993
-LOG_FILE = "envio_fe_log.txt"  # Nombre del archivo de log para "Envío FE"
+
+# Crear directorio LOGS/inbox si no existe
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOGS_DIR = os.path.join(SCRIPT_DIR, "LOGS", "inbox")
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+LOG_FILE = os.path.join(LOGS_DIR, "envio_fe_log.txt")  # Archivo de log para "Envío FE"
 DEBUG_HTML_FILE = "debug_html_original.html"  # Para guardar HTML original para depuración
 DIRECTORY_ONEDRIVE = r"C:\Users\Administrator\OneDrive - Indra (1)\Facturas\Carpeta Archivos Adjuntos\BOT3 Estructura de Carpetas"
 
@@ -160,8 +166,8 @@ def registrar_envio_fe(email_message, asunto, texto_encontrado, contexto):
     Crea una entrada en el archivo de log cuando se detecta "Envío FE"
     """
     try:
-        # Determinar la ruta del archivo de log
-        log_path = os.path.join(os.getcwd(), LOG_FILE)
+        # LOG_FILE ya es ruta absoluta
+        log_path = LOG_FILE
         
         # Obtener información relevante del correo
         fecha = email_message.get('Date', 'Desconocida')

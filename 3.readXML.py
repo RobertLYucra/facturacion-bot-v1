@@ -32,8 +32,6 @@ NEW_EXCEL = Path(DIRECTORY_FILE_XML).parent / "3.file_table_xml.xlsx"  # Ruta pa
 EXISTING_EXCEL = r"D:\facturas_bot\Registros Historico\3.Historicov2.xlsx"
 CSV_FILE_TABLE = f"{BASE_PATH}/tabla_1.csv"
 
-# Resto del código permanece igual
-#df_csv = pd.read_csv(CSV_FILE_TABLE, delimiter='|', dtype=str, header=None,on_bad_lines='warn').fillna("")
 df_csv = pd.read_csv(CSV_FILE_TABLE, delimiter='|', dtype=str, header=0, on_bad_lines='warn').fillna("")
 
 
@@ -49,8 +47,12 @@ def identificar_columnas_csv(df, archivo_log=None):
     import os
 
     if archivo_log is None:
+        # Usar carpeta LOGS/read_xml
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        logs_dir = os.path.join(script_dir, "LOGS", "read_xml")
+        os.makedirs(logs_dir, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        archivo_log = f"log_identificacion_columnas_{timestamp}.txt"
+        archivo_log = os.path.join(logs_dir, f"log_identificacion_columnas_{timestamp}.txt")
 
     def log(mensaje):
         with open(archivo_log, "a", encoding="utf-8") as f:
@@ -160,59 +162,6 @@ print(f"Se usará la columna {columna_comprobante} para buscar comprobantes y la
 df_csv.iloc[:, columna_comprobante] = df_csv.iloc[:, columna_comprobante].astype(str).apply(normaliza_comprobante)
 
 
-# def buscar_proyecto_tabla_CSV(df_csv, codigo_busqueda, columna_proyecto=3):
-#     try:
-#         print("Iniciando la búsqueda del proyecto: " + codigo_busqueda)
-#         print(f"Total de filas en el DataFrame: {len(df_csv)}")
-        
-#         # Asegurar que la primera columna sea texto
-#         print("Convirtiendo la primera columna a texto.")
-#         columna_texto = df_csv.iloc[:, 0].astype(str)
-        
-#         # Mostrar los primeros valores para diagnóstico
-#         print("Mostrando los primeros 5 valores de la columna de búsqueda:")
-#         for i in range(min(30, len(columna_texto))):
-#             print(f"  Fila {i}: '{columna_texto.iloc[i]}'")
-        
-#         # Buscar coincidencias verificando si el código está contenido en el texto
-#         print(f"Buscando el código '{codigo_busqueda}' en la primera columna.")
-        
-#         # Log detallado de la búsqueda
-#         encontrados = []
-#         for idx, valor in enumerate(columna_texto):
-#             if codigo_busqueda in valor:
-#                 print(f"  Coincidencia encontrada en fila {idx}: '{valor}' contiene '{codigo_busqueda}'")
-#                 encontrados.append(idx)
-#             # Para no saturar la salida, mostrar solo algunos no coincidentes
-#             elif idx < 3:
-#                 print(f"  Sin coincidencia en fila {idx}: '{valor}' no contiene '{codigo_busqueda}'")
-        
-#         print(f"Total de coincidencias encontradas: {len(encontrados)}")
-        
-#         # Aplicar la máscara de filtrado
-#         mascara = columna_texto.str.contains(codigo_busqueda, regex=False)
-#         resultado = df_csv[mascara]
-        
-#         # Verificar si se encontraron resultados
-#         if not resultado.empty:
-#             print(f"Proyecto encontrado. Número de coincidencias: {len(resultado)}")
-#             print(f"Primera coincidencia en la fila: {resultado.index[0]}")
-#             print(f"Valor completo de la primera fila coincidente: {resultado.iloc[0].tolist()}")
-#             print(f"Devolviendo el valor de la columna {columna_proyecto+1} (índice {columna_proyecto}): '{resultado.iloc[0, columna_proyecto]}'")
-#             return resultado.iloc[0, columna_proyecto]
-
-#         print("No se encontraron coincidencias para el código de búsqueda.")
-#         return None
-    
-#     except Exception as e:
-#         print(f"Error al procesar el archivo: {e}")
-#         import traceback
-#         print(traceback.format_exc())  # Muestra el stack trace completo
-#         return None
-
-
-
-
 def variantes_comprobante(comprobante):
     variantes = set()
     # Si ya tiene doble guion, también busca con un solo guion y 6 dígitos
@@ -231,20 +180,6 @@ def variantes_comprobante(comprobante):
     else:
         variantes.add(comprobante)
     return list(variantes)
-
-# def buscar_proyecto_tabla_CSV(df_csv, codigo_busqueda, columna_proyecto=3):
-#     variantes = variantes_comprobante(codigo_busqueda)
-#     print(f"Buscando las variantes: {variantes}")
-
-#     columna_texto = df_csv.iloc[:, 0].astype(str).str.strip()
-#     for variante in variantes:
-#         mascara = columna_texto == variante
-#         resultado = df_csv[mascara]
-#         if not resultado.empty:
-#             print(f"Proyecto encontrado para '{variante}': {resultado.iloc[0, columna_proyecto]}")
-#             return resultado.iloc[0, columna_proyecto]
-#     print("No se encontró ninguna variante de comprobante en el CSV.")
-#     return None
 
 import re
 def buscar_proyecto_tabla_CSV(df_csv, codigo_busqueda, columna_comprobante, columna_proyecto):

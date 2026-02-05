@@ -7,50 +7,6 @@ from registro_errores import registrar_log_detallado
 DEFAULT_ORIGEN = "inboxFacturas/RV_ Facturación Perú 19.03.2025/Organizado"
 DEFAULT_DESTINO = r"C:\Users\Administrator\OneDrive - Indra (1)\Facturas\Carpeta Archivos Adjuntos\BOT3 Estructura de Carpetas"
 
-# def copiar_solo_carpetas(origen, destino):
-#     """Copia solo las carpetas (y su contenido) de una ubicación a otra"""
-#     # Verificar que la carpeta origen existe
-#     if not os.path.exists(origen):
-#         print(f"Error: La carpeta origen '{origen}' no existe.")
-#         return False
-        
-#     # Verificar que la carpeta origen es realmente una carpeta
-#     if not os.path.isdir(origen):
-#         print(f"Error: '{origen}' no es una carpeta.")
-#         return False
-        
-#     # Crear la carpeta destino si no existe
-#     if not os.path.exists(destino):
-#         print(f"Creando carpeta destino '{destino}'...")
-#         os.makedirs(destino)
-        
-#     # Obtener la lista de elementos en la carpeta origen
-#     todos_elementos = os.listdir(origen)
-    
-#     # Filtrar para quedarnos solo con las carpetas
-#     carpetas = [elemento for elemento in todos_elementos if os.path.isdir(os.path.join(origen, elemento))]
-#     total_carpetas = len(carpetas)
-    
-#     print(f"Se encontraron {total_carpetas} carpetas para copiar.")
-    
-#     if total_carpetas == 0:
-#         print("No hay carpetas para copiar.")
-#         return True
-    
-#     # Copiar cada carpeta
-#     for i, carpeta in enumerate(carpetas, 1):
-#         ruta_origen = os.path.join(origen, carpeta)
-#         ruta_destino = os.path.join(destino, carpeta)
-        
-#         try:
-#             print(f"[{i}/{total_carpetas}] Copiando carpeta: {carpeta}...")
-#             shutil.copytree(ruta_origen, ruta_destino, dirs_exist_ok=True)
-#         except Exception as e:
-#             print(f"  ❌ Error al copiar la carpeta '{carpeta}': {str(e)}")
-    
-#     print(f"\n✅ Copia finalizada. Se copiaron {total_carpetas} carpetas de '{origen}' a '{destino}'.")
-#     return True
-
 def copiar_solo_carpetas(origen, destino, asunto_correo):
     if not os.path.exists(origen):
         error_msg = f"La carpeta origen '{origen}' no existe."

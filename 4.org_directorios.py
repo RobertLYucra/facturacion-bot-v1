@@ -112,7 +112,6 @@ def identificar_columnas_csv(df):
         for idx in range(num_filas_analizar):
             if idx < len(df):
                 valor = str(df.iloc[idx, col_idx]).strip()
-                #print(f"  Fila {idx}: Valor = '{valor}'")
                 
                 # Verificar si es NaN o valor vacío antes de evaluar patrones
                 if valor and valor.lower() != 'nan':
@@ -515,7 +514,6 @@ for idx, row in df_excel.iterrows():
         empresa = row["Empresa INDRA/MPS/TCN"]
         num_comprobante = row["N° de Comprobante"]
         print(f"num_comprobante: {num_comprobante}")
-        #num_comprobante = re.sub(r'-0+(\d+)', r'-\1', num_comprobante)
         print(f"2 num_comprobante: {num_comprobante}")
         codigo_archivo = f"{row['RUC2']}-01-{num_comprobante}"  # Concatenar E y F
         print(f"codigo_archivo: {codigo_archivo}")
