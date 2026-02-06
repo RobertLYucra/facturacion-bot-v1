@@ -79,7 +79,12 @@ def limpiar_nombre_carpeta(nombre):
     if not nombre:
         return "sin_asunto"
     try:
-        nombre_limpio = re.sub(r'[\\/*?:"<>|]', "_", nombre)
+        # Primero eliminar saltos de línea, retornos de carro, tabs y caracteres de control
+        nombre_limpio = nombre.replace('\r', ' ').replace('\n', ' ').replace('\t', ' ')
+        # Eliminar caracteres no válidos en Windows para nombres de carpetas
+        nombre_limpio = re.sub(r'[\\/\*?:"<>|]', "_", nombre_limpio)
+        # Eliminar espacios múltiples consecutivos
+        nombre_limpio = re.sub(r'\s+', ' ', nombre_limpio)
         nombre_limpio = nombre_limpio.strip()[:100]  # Limitar a 100 caracteres
         # Si está vacío, usar sin_asunto
         if not nombre_limpio:
