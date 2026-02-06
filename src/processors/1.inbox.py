@@ -1367,13 +1367,79 @@ def procesar_email_completo(email_addr=EMAIL, password=PASSWORD, server=SERVER, 
             global_logger.info(f"Se procesarán {len(mail_ids)} correos.")
             print(f"Se procesarán {len(mail_ids)} correos.")
             directorios_procesados = []
+            correos_fallidos = []
             
             for i, email_id in enumerate(mail_ids):
                 global_logger.info(f"Procesando correo {i+1} de {len(mail_ids)} (ID: {email_id})")
                 print(f"\n{'='*50}\nProcesando correo {i+1} de {len(mail_ids)} (ID: {email_id})\n{'='*50}")
-                resultado = procesar_mensaje(mail, email_id, carpeta_destino)
-                if resultado and directorio_descarga:
-                    directorios_procesados.append(directorio_descarga)
+                
+                # 🔄 VERIFICAR Y RECONECTAR SI ES NECESARIO ANTES DE CADA CORREO
+                try:
+                    mail.noop()  # Verificar conexión con comando NOOP
+                except Exception as conn_error:
+                    global_logger.warning(f"Conexión perdida antes de procesar correo {i+1}. Reconectando...")
+                    print(f"🔄 Conexión perdida. Reconectando al servidor...")
+                    try:
+                        # Intentar cerrar la conexión anterior limpiamente
+                        try:
+                            mail.logout()
+                        except:
+                            pass
+                        
+                        # Reconectar
+                        mail = conectar_correo(email_addr, password, server, port, carpeta)
+                        if not mail:
+                            global_logger.error(f"No se pudo reconectar para procesar correo {i+1}")
+                            print(f"❌ No se pudo reconectar. Saltando correo {i+1}...")
+                            correos_fallidos.append(email_id)
+                            continue
+                        
+                        global_logger.info("Reconexión exitosa")
+                        print("✅ Reconexión exitosa")
+                        
+                        # Pequeña pausa después de reconectar para estabilizar
+                        time.sleep(1)
+                    except Exception as reconn_error:
+                        global_logger.error(f"Error al reconectar: {str(reconn_error)}")
+                        print(f"❌ Error al reconectar: {str(reconn_error)}")
+                        correos_fallidos.append(email_id)
+                        continue
+                
+                # Procesar el correo con manejo de errores de socket
+                try:
+                    resultado = procesar_mensaje(mail, email_id, carpeta_destino)
+                    if resultado and directorio_descarga:
+                        directorios_procesados.append(directorio_descarga)
+                except (OSError, ConnectionError, BrokenPipeError) as socket_error:
+                    error_msg = f"Error de conexión al procesar correo {i+1}: {str(socket_error)}"
+                    global_logger.error(error_msg)
+                    print(f"❌ {error_msg}")
+                    correos_fallidos.append(email_id)
+                    
+                    # Intentar reconectar para el siguiente correo
+                    try:
+                        mail = conectar_correo(email_addr, password, server, port, carpeta)
+                        if mail:
+                            print("✅ Reconectado para continuar con los demás correos")
+                            time.sleep(1)
+                    except:
+                        pass
+                    continue
+                except Exception as proc_error:
+                    error_msg = f"Error al procesar correo {i+1}: {str(proc_error)}"
+                    global_logger.error(error_msg)
+                    print(f"❌ {error_msg}")
+                    correos_fallidos.append(email_id)
+                    continue
+                
+                # Pequeña pausa entre correos para no saturar el servidor
+                if i < len(mail_ids) - 1:
+                    time.sleep(0.5)
+            
+            # Mostrar resumen de correos fallidos si los hay
+            if correos_fallidos:
+                global_logger.warning(f"Correos que no pudieron procesarse: {correos_fallidos}")
+                print(f"\n⚠️ {len(correos_fallidos)} correo(s) no pudieron procesarse: {correos_fallidos}")
             
             # Cerrar conexión
             try:
