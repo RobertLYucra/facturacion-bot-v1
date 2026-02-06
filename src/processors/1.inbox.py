@@ -1060,7 +1060,7 @@ def procesar_mensaje(mail, msg_id=None, carpeta_destino=None):
                 "3.readXML.py",
                 "4.org_directorios.py",
                 "5.SendOnedrive.py",
-                "SendRegistroHistorico.py"
+                "../services/SendRegistroHistorico.py"
             ]
             
             # Variable para controlar si hubo error
@@ -1275,9 +1275,9 @@ def procesar_email_completo(email_addr=EMAIL, password=PASSWORD, server=SERVER, 
             global_logger.info(f"Hay {len(mail_ids)} correo(s) pendiente(s). Iniciando sincronización.")
             
             scripts_sync = [
-                "SyncMaestra.py",
-                "SyncHistorico.py",
-                "SyncArchivoCompartidos.py"
+                "../services/SyncMaestra.py",
+                "../services/SyncHistorico.py",
+                "../services/SyncArchivoCompartidos.py"
             ]
             
             for i, script in enumerate(scripts_sync, start=1):
