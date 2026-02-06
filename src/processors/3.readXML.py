@@ -47,9 +47,9 @@ def identificar_columnas_csv(df, archivo_log=None):
     import os
 
     if archivo_log is None:
-        # Usar carpeta LOGS/read_xml
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        logs_dir = os.path.join(script_dir, "LOGS", "read_xml")
+        # Usar carpeta LOGS/read_xml (relativa a raíz del proyecto)
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        logs_dir = os.path.join(project_root, "LOGS", "read_xml")
         os.makedirs(logs_dir, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         archivo_log = os.path.join(logs_dir, f"log_identificacion_columnas_{timestamp}.txt")

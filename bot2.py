@@ -136,8 +136,10 @@ def ejecutar_script(nombre_script, argumentos=None):
         os.makedirs(output_dir, exist_ok=True)
         
         timestamp = time.strftime('%Y%m%d_%H%M%S')
-        stdout_filename = os.path.join(output_dir, f"{nombre_script.replace('.py', '')}_{timestamp}_stdout.log")
-        stderr_filename = os.path.join(output_dir, f"{nombre_script.replace('.py', '')}_{timestamp}_stderr.log")
+        # Usar solo el nombre base del script (sin la ruta)
+        nombre_base = os.path.basename(nombre_script).replace('.py', '')
+        stdout_filename = os.path.join(output_dir, f"{nombre_base}_{timestamp}_stdout.log")
+        stderr_filename = os.path.join(output_dir, f"{nombre_base}_{timestamp}_stderr.log")
         
         # Guardar salida estándar
         with open(stdout_filename, 'w', encoding='utf-8') as f:  # <-- UTF-8
