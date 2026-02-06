@@ -2,9 +2,14 @@ import os
 import shutil
 import pandas as pd
 import re
-from buscar_proyecto_maestra import buscar_proyecto, cargar_excel
-import glob
 import sys
+
+# Agregar raíz del proyecto al path
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, PROJECT_ROOT)
+
+from src.utils.buscar_proyecto_maestra import buscar_proyecto, cargar_excel
+import glob
 import openpyxl
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from pathlib import Path

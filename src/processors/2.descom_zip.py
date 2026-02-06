@@ -1,4 +1,3 @@
-
 import os
 import zipfile
 import rarfile
@@ -6,7 +5,12 @@ import sys
 import re
 import logging
 import shutil
-from email_log_module import actualizar_estado_log
+
+# Agregar raíz del proyecto al path
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, PROJECT_ROOT)
+
+from src.utils.email_log_module import actualizar_estado_log
 from datetime import datetime
 import io
 
@@ -19,8 +23,8 @@ if sys.platform == 'win32':
         sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 # ==========================================================================
 
-# Configurar logging
-log_directory = "logs"
+# Configurar logging (relativo a raíz del proyecto)
+log_directory = os.path.join(PROJECT_ROOT, "LOGS", "descom_zip")
 os.makedirs(log_directory, exist_ok=True)
 log_file = os.path.join(log_directory, f"descompresion_organizacion_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
 

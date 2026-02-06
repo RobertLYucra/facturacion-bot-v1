@@ -1,7 +1,12 @@
 import os
 import shutil
 import sys
-from registro_errores import registrar_log_detallado
+
+# Agregar raíz del proyecto al path
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, PROJECT_ROOT)
+
+from src.utils.registro_errores import registrar_log_detallado
 
 # Parámetros por defecto
 DEFAULT_ORIGEN = "inboxFacturas/RV_ Facturación Perú 19.03.2025/Organizado"

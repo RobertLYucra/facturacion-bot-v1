@@ -1,5 +1,9 @@
 import pandas as pd
 import sys
+import os
+
+# Obtener raíz del proyecto
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def cargar_excel(ruta_archivo):
     """
@@ -23,7 +27,7 @@ def cargar_excel(ruta_archivo):
         print(f"Error al cargar el archivo Excel: {str(e)}")
         return None
 
-def buscar_proyecto(codigo_proyecto, ruta_excel="Maestra/Robot 2_Estructura Carpetas Factura SSFF 03.03.2025.xlsx"):
+def buscar_proyecto(codigo_proyecto, ruta_excel=None):
     """
     Busca un proyecto específico en el DataFrame y devuelve su información.
     
@@ -34,6 +38,10 @@ def buscar_proyecto(codigo_proyecto, ruta_excel="Maestra/Robot 2_Estructura Carp
     Retorna:
     - DataFrame con los resultados de la búsqueda
     """
+    # Usar ruta por defecto si no se proporciona
+    if ruta_excel is None:
+        ruta_excel = os.path.join(PROJECT_ROOT, "data", "Maestra", "Robot 2_Estructura Carpetas Factura SSFF 03.03.2025.xlsx")
+    
     # Imprimir información de búsqueda
     print(f"Buscando proyecto con código: {codigo_proyecto}")
     print(f"Usando archivo Excel: {ruta_excel}")

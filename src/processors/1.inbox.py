@@ -11,8 +11,13 @@ import csv
 import datetime
 from email.header import decode_header
 from bs4 import BeautifulSoup  # Necesitarás instalar BeautifulSoup4: pip install beautifulsoup4
-from email_log_module import inicializar_log_excel, registrar_correo_log, actualizar_estado_log, obtener_cuerpo_correo
-from log_manager import LogManager
+
+# Agregar raíz del proyecto al path
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, PROJECT_ROOT)
+
+from src.utils.email_log_module import inicializar_log_excel, registrar_correo_log, actualizar_estado_log, obtener_cuerpo_correo
+from src.utils.log_manager import LogManager
 import pandas as pd
 import subprocess
 import time
@@ -42,9 +47,9 @@ FILE_EMAIL_REVISAR = "BOT2-REVISAR"
 SERVER = "imap.indra.es"
 PORT_EMAIL = 993
 
-# Crear directorio LOGS/inbox si no existe
+# Crear directorio LOGS/inbox si no existe (relativo a raíz del proyecto)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-LOGS_DIR = os.path.join(SCRIPT_DIR, "LOGS", "inbox")
+LOGS_DIR = os.path.join(PROJECT_ROOT, "LOGS", "inbox")
 os.makedirs(LOGS_DIR, exist_ok=True)
 
 LOG_FILE = os.path.join(LOGS_DIR, "envio_fe_log.txt")  # Archivo de log para "Envío FE"

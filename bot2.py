@@ -3,7 +3,8 @@ import os
 import time
 import sys
 import imaplib
-from log_manager import LogManager
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from src.utils.log_manager import LogManager
 
 # Configuración de correo (igual que en 1.inbox.py)
 EMAIL = "alertasflm@indra.es"
@@ -230,9 +231,9 @@ def main():
     logger.info(f"Hay {cantidad} correo(s) pendiente(s). Iniciando sincronización.")
     
     scripts_sync = [
-        "SyncMaestra.py",
-        "SyncHistorico.py",
-        "SyncArchivoCompartidos.py"
+        "src/services/SyncMaestra.py",
+        "src/services/SyncHistorico.py",
+        "src/services/SyncArchivoCompartidos.py"
     ]
     
     for i, script in enumerate(scripts_sync, start=2):
@@ -259,7 +260,7 @@ def main():
     print(f"\n[PASO {i+1}] Ejecutando 1.inbox.py para procesar correos...")
     ejecucion_logger.info(f"PASO {i+1}: Ejecutando 1.inbox.py")
     
-    exito, stdout = ejecutar_script("1.inbox.py")
+    exito, stdout = ejecutar_script("src/processors/1.inbox.py")
     
     if not exito:
         print("\n❌ Error al procesar correos con 1.inbox.py")

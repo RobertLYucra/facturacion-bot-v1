@@ -4,17 +4,19 @@ import time
 import logging
 from datetime import datetime
 
+# Obtener raíz del proyecto
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # Crear directorio LOGS/send_registro_historico si no existe
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-LOGS_DIR = os.path.join(SCRIPT_DIR, "LOGS", "send_registro_historico")
+LOGS_DIR = os.path.join(PROJECT_ROOT, "LOGS", "send_registro_historico")
 os.makedirs(LOGS_DIR, exist_ok=True)
 
 # Configurar logging
 logging.basicConfig(filename=os.path.join(LOGS_DIR, 'file_copy.log'), level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Rutas de los archivos
-ARCHIVO_ORIGEN = "Registros Historico/3.Historicov2.xlsx"
+# Rutas de los archivos (actualizado a nueva ubicación en data/)
+ARCHIVO_ORIGEN = os.path.join(PROJECT_ROOT, "data", "Registros Historico", "3.Historicov2.xlsx")
 ARCHIVO_DESTINO = r"C:\Users\Administrator\OneDrive - Indra (1)\Facturas\Carpeta Archivos Adjuntos\Registro Historico\3.Historicov2.xlsx"
 
 def copiar_archivo(origen, destino):

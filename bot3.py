@@ -54,11 +54,11 @@ def ejecutar_script(nombre_script):
 
 def main():
     scripts_en_orden = [
-        "SyncMaestra.py",
-        "SyncArchivoCompartidos.py",
-        "SyncHistorico.py",
-        "SendEmail.py",
-        "SendRegistroHistorico.py"
+        "src/services/SyncMaestra.py",
+        "src/services/SyncArchivoCompartidos.py",
+        "src/services/SyncHistorico.py",
+        "src/services/SendEmail.py",
+        "src/services/SendRegistroHistorico.py"
     ]
     
     logger.info("=== INICIANDO EJECUCIÓN ===")
