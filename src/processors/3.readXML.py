@@ -52,7 +52,7 @@ def identificar_columnas_csv(df, archivo_log=None):
         logs_dir = os.path.join(project_root, "LOGS", "read_xml")
         os.makedirs(logs_dir, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        archivo_log = os.path.join(logs_dir, f"log_identificacion_columnas_{timestamp}.txt")
+        archivo_log = os.path.join(logs_dir, f"log_identificacion_columnas_{timestamp}.log")
 
     def log(mensaje):
         with open(archivo_log, "a", encoding="utf-8") as f:

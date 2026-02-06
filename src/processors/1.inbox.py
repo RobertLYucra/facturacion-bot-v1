@@ -1,4 +1,5 @@
 import imaplib
+import ssl
 import email
 import sys
 import io
@@ -637,7 +638,20 @@ def listar_asuntos_correos(mail):
         print(f"Error al listar asuntos: {str(e)}")
 
 
-def procesar_mensaje(mail, msg_id=None, carpeta_destino=None):
+def procesar_mensaje(mail, msg_id=None, carpeta_destino=None, email_config=None):
+    """
+    Procesa un mensaje de correo. Si la conexión falla, intenta reconectar.
+    
+    Args:
+        mail: Conexión IMAP activa
+        msg_id: ID del mensaje a procesar
+        carpeta_destino: Directorio destino para descargas
+        email_config: Diccionario con configuración para reconexión 
+                      {'email': EMAIL, 'password': PASSWORD, 'server': SERVER, 'port': PORT_EMAIL, 'carpeta': FILE_EMAIL_PENDIENTE}
+    
+    Returns:
+        tuple: (resultado, mail_actualizado) - El mail puede haber sido reconectado
+    """
     global adjuntos, imagenes, todos_los_textos, directorio_descarga, envio_fe_encontrado
     global asuntos_procesados_en_sesion
 
@@ -651,6 +665,16 @@ def procesar_mensaje(mail, msg_id=None, carpeta_destino=None):
     # Definir directorio base de descarga
     directorio_base = carpeta_destino if carpeta_destino else os.path.join(os.getcwd(), FILE_DOWNLOAD_ATTACHMENT)
     os.makedirs(directorio_base, exist_ok=True)
+    
+    # Configuración por defecto para reconexión
+    if email_config is None:
+        email_config = {
+            'email': EMAIL,
+            'password': PASSWORD,
+            'server': SERVER,
+            'port': PORT_EMAIL,
+            'carpeta': FILE_EMAIL_PENDIENTE
+        }
     
     try:
         listar_asuntos_correos(mail)
@@ -668,12 +692,61 @@ def procesar_mensaje(mail, msg_id=None, carpeta_destino=None):
             log_manager.ejecucion_logger.info(f"Procesando último correo (ID: {msg_id})")
             print(f"Procesando último correo (ID: {msg_id})")
         
-        # Obtener el correo
+        # Obtener el correo con reintentos y reconexión
         log_manager.ejecucion_logger.info(f"Obteniendo correo con ID: {msg_id}")
         print(f"Obteniendo correo con ID: {msg_id}")
         
-        status, data = mail.fetch(msg_id, "(RFC822)")
-        raw_email = data[0][1]
+        # 🔄 FETCH CON REINTENTOS Y RECONEXIÓN
+        max_reintentos = 3
+        raw_email = None
+        
+        for intento in range(max_reintentos):
+            try:
+                status, data = mail.fetch(msg_id, "(RFC822)")
+                raw_email = data[0][1]
+                break  # Éxito, salir del loop
+            except (imaplib.IMAP4.abort, imaplib.IMAP4.error, OSError, ConnectionError, ssl.SSLError) as fetch_error:
+                log_manager.ejecucion_logger.warning(f"Error en fetch (intento {intento + 1}/{max_reintentos}): {str(fetch_error)}")
+                print(f"⚠️ Error de conexión en fetch (intento {intento + 1}/{max_reintentos})")
+                
+                if intento < max_reintentos - 1:
+                    print(f"🔄 Reconectando al servidor...")
+                    try:
+                        # Intentar cerrar conexión anterior
+                        try:
+                            mail.logout()
+                        except:
+                            pass
+                        
+                        # Reconectar
+                        time.sleep(2)  # Pausa antes de reconectar
+                        mail = conectar_correo(
+                            email_config['email'],
+                            email_config['password'],
+                            email_config['server'],
+                            email_config['port'],
+                            email_config['carpeta']
+                        )
+                        
+                        if mail:
+                            log_manager.ejecucion_logger.info("Reconexión exitosa, reintentando fetch...")
+                            print("✅ Reconexión exitosa, reintentando...")
+                            time.sleep(1)
+                        else:
+                            log_manager.ejecucion_logger.error("No se pudo reconectar")
+                            print("❌ No se pudo reconectar")
+                            raise Exception("Reconexión fallida")
+                    except Exception as reconn_error:
+                        log_manager.ejecucion_logger.error(f"Error en reconexión: {str(reconn_error)}")
+                        print(f"❌ Error en reconexión: {str(reconn_error)}")
+                        if intento == max_reintentos - 1:
+                            raise
+                else:
+                    raise  # Último intento fallido, propagar error
+        
+        if raw_email is None:
+            raise Exception("No se pudo obtener el correo después de múltiples intentos")
+        
         email_message = email.message_from_bytes(raw_email)
         
         # Información básica del correo
@@ -1406,8 +1479,16 @@ def procesar_email_completo(email_addr=EMAIL, password=PASSWORD, server=SERVER, 
                         continue
                 
                 # Procesar el correo con manejo de errores de socket
+                # Preparar configuración de email para reconexión dentro de procesar_mensaje
+                email_config = {
+                    'email': email_addr,
+                    'password': password,
+                    'server': server,
+                    'port': port,
+                    'carpeta': carpeta
+                }
                 try:
-                    resultado = procesar_mensaje(mail, email_id, carpeta_destino)
+                    resultado = procesar_mensaje(mail, email_id, carpeta_destino, email_config)
                     if resultado and directorio_descarga:
                         directorios_procesados.append(directorio_descarga)
                 except (OSError, ConnectionError, BrokenPipeError) as socket_error:
